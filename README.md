@@ -11,29 +11,29 @@
 
 ## 📝 Deskripsi Project
 
-**Nurdinshop** adalah platform *e-commerce* inovatif yang fokus pada produk *fashion* dengan konsep **Outfit Bundling**. Masalah utama yang kami selesaikan adalah kesulitan pengguna dalam memadupadankan (*mix & match*) pakaian. 
+**Nurdinshop** adalah platform *e-commerce* premium yang berfokus pada solusi fashion modern melalui konsep **Outfit Bundling** (Mix & Match setelan pakaian). Proyek ini dirancang untuk mempermudah pengguna dalam memilih kombinasi pakaian yang serasi (Atasan, Bawahan, dan Aksesoris) hanya dalam satu klik.
 
-Dibangun dengan **Vanilla JavaScript** dan **Tailwind CSS**, sistem ini beroperasi sepenuhnya secara *client-side*. Data pengguna, keranjang, hingga riwayat pesanan dikelola secara persisten melalui `localStorage`, memberikan pengalaman aplikasi web yang cepat tanpa memerlukan server backend tambahan.
+Sistem ini dibangun sebagai proyek **Full Client-Side** menggunakan arsitektur yang ringan namun bertenaga. Seluruh pengelolaan data (User, Produk, Keranjang, dan Transaksi) dilakukan menggunakan **Vanilla JavaScript** dengan pemanfaatan **LocalStorage** sebagai media penyimpanan database lokal yang persisten.
 
 ---
 
 ## ✨ Fitur Unggulan
 
-### 🛍️ Pengalaman Belanja
-- **Outfit Bundling:** Beli satu setel lengkap (atasan, bawahan, sepatu) dalam satu klik.
-- **Dynamic Cart:** Kelola belanjaan dengan update harga dan jumlah secara otomatis.
-- **Wishlist System:** Simpan koleksi favorit untuk referensi gaya di masa depan.
-- **Smart Search & Filter:** Temukan gaya berdasarkan kategori (Casual, Streetwear, Formal).
+### 🛍️ Pengalaman Belanja Modern
+- **Outfit Bundling:** Sistem beli paket setelan lengkap untuk efisiensi waktu belanja.
+- **Smart Cart:** Manajemen keranjang belanja dinamis dengan fitur tambah/kurang/hapus dan kalkulasi otomatis.
+- **Advanced Search & Filter:** Memudahkan pencarian produk berdasarkan kategori (Casual, Streetwear, Formal).
+- **Wishlist:** Simpan produk outfit favorit untuk dikunjungi kembali di sesi berikutnya.
 
-### 🎨 UI/UX & Interaktivitas
-- **Adaptive Mode:** Dukungan penuh untuk **Dark/Light Mode**.
-- **Responsive Design:** Tampilan elegan yang menyesuaikan layar Mobile, Tablet, hingga Desktop.
-- **Real-time Rating:** Visualisasi bintang dan ulasan dinamis pada setiap produk.
+### 🎨 Desain & Interaktivitas
+- **Responsive Layout:** Antarmuka elegan yang sepenuhnya adaptif (Mobile, Tablet, Desktop) menggunakan Tailwind CSS.
+- **Dark & Light Mode:** Dukungan tema visual yang dapat disesuaikan dengan preferensi kenyamanan mata pengguna.
+- **Dynamic Rating:** Sistem penilaian bintang dan ulasan pelanggan yang tampil secara dinamis.
 
-### 🔐 Manajemen Data
-- **Simulated Authentication:** Fitur Login, Register, dan Logout berbasis session browser.
-- **Admin Dashboard:** Pantau total pendapatan, pesanan masuk, dan daftar pelanggan terdaftar.
-- **Persistence:** Semua data tersimpan aman di browser walaupun halaman di-refresh.
+### 🔐 Keamanan & Administrasi
+- **Auth System:** Simulasi fitur Login, Register, dan Logout untuk keamanan data personal.
+- **Admin Dashboard:** Panel khusus untuk memantau trafik transaksi, total pendapatan, dan data pelanggan terdaftar.
+- **Persistence Data:** Data tetap tersimpan aman di browser meskipun halaman dimuat ulang.
 
 ---
 
@@ -41,14 +41,23 @@ Dibangun dengan **Vanilla JavaScript** dan **Tailwind CSS**, sistem ini beropera
 
 | Layer | Teknologi |
 | :--- | :--- |
-| **Frontend Framework** | [Tailwind CSS](https://tailwindcss.com/) |
+| **Frontend UI** | [Tailwind CSS](https://tailwindcss.com/) |
 | **Programming Language** | JavaScript (ES6+) |
 | **Database/Storage** | Web Storage API (LocalStorage) |
 | **Deployment** | GitHub Pages |
+| **Data Format** | JSON (JavaScript Object Notation) |
 
 ---
 
-## 💻 Cara Menjalankan Project
+## 🌐 Demo Aplikasi
+
+Aplikasi telah berhasil dideploy dan dapat diakses secara publik melalui tautan berikut:
+
+👉 [**Live Demo Nurdinshop di GitHub Pages**](https://phrdin.github.io/Pahrudin_UTS_Web2/)
+
+---
+
+## 💻 Cara Instalasi Lokal
 
 1. **Clone Repository**
    ```bash
