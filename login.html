@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Nurdinshop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 h-screen flex items-center justify-center relative overflow-hidden">
+    
+    <!-- Background Decor -->
+    <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-cyan-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-30"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-30"></div>
+
+    <div class="max-w-md w-full mx-4 relative z-10">
+        <!-- Back to home -->
+        <a href="index.html" class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-cyan-600 mb-6 transition-colors">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Kembali ke Katalog
+        </a>
+
+        <!-- Login Card -->
+        <div class="bg-white/80 backdrop-blur-xl p-8 rounded-3xl shadow-xl border border-white/50">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-extrabold text-navy-900 mb-2 tracking-tight">Selamat Datang</h1>
+                <p class="text-slate-500 text-sm">Masuk untuk menyimpan gaya favoritmu.</p>
+            </div>
+
+            <form id="loginForm" class="space-y-5">
+                <div>
+                    <label for="email" class="block text-sm font-semibold text-navy-900 mb-1.5">Email</label>
+                    <input type="email" id="email" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all" placeholder="contoh@mahasiswa.com">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-semibold text-navy-900 mb-1.5">Password</label>
+                    <input type="password" id="password" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all" placeholder="••••••••">
+                </div>
+                
+                <div id="loginError" class="text-red-500 text-xs font-medium hidden text-center">Email atau password salah!</div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-navy-900 to-blue-800 hover:from-blue-800 hover:to-cyan-600 text-white rounded-xl py-3.5 font-bold text-sm shadow-md transition-all duration-300 transform hover:-translate-y-0.5">Masuk Sekarang</button>
+            </form>
+
+            <div class="mt-8 text-center text-sm text-slate-500">
+                Belum punya akun? <a href="register.html" class="text-cyan-600 font-bold hover:text-navy-900 transition-colors">Daftar di sini</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

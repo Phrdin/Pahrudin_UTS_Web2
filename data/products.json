@@ -1,0 +1,89 @@
+[
+  {
+    "id": "OUT001",
+    "name": "White Minimalist Hoodie",
+    "category": "Casual",
+    "price": 300000,
+    "rating": 4.8,
+    "reviews": 124,
+    "items": [
+      { "type": "atasan", "name": "Premium White Hoodie" },
+      { "type": "bawahan", "name": "White Sweatpants" },
+      { "type": "sepatu", "name": "White Sneakers" }
+    ],
+    "image": "assets/images/products/produk 1.jpg",
+    "description": "Setelan hoodie putih premium yang nyaman dan stylish."
+  },
+  {
+    "id": "OUT002",
+    "name": "Oversize Sweatshirt",
+    "category": "Casual",
+    "price": 250000,
+    "rating": 4.5,
+    "reviews": 89,
+    "items": [
+      { "type": "atasan", "name": "White Oversize Sweatshirt" },
+      { "type": "bawahan", "name": "Loose Pants" }
+    ],
+    "image": "assets/images/products/produk 2.jpg",
+    "description": "Tampil santai dengan sweatshirt oversize putih."
+  },
+  {
+    "id": "OUT003",
+    "name": "Streetwear Sporty",
+    "category": "Streetwear",
+    "price": 350000,
+    "rating": 4.9,
+    "reviews": 210,
+    "items": [
+      { "type": "atasan", "name": "White Graphic T-Shirt" },
+      { "type": "bawahan", "name": "Grey Sweatpants" },
+      { "type": "sepatu", "name": "Chunky Sneakers" }
+    ],
+    "image": "assets/images/products/produk 3.jpg",
+    "description": "Gaya sporty casual yang cocok untuk hangout."
+  },
+  {
+    "id": "OUT004",
+    "name": "Gamis Lebaran Set",
+    "category": "Formal",
+    "price": 450000,
+    "rating": 4.7,
+    "reviews": 156,
+    "items": [
+      { "type": "atasan", "name": "Gamis Panjang Elegan" },
+      { "type": "aksesoris", "name": "Hijab Senada" },
+      { "type": "aksesoris", "name": "Handbag" }
+    ],
+    "image": "assets/images/products/produk 4.jpg",
+    "description": "Set gamis anggun untuk acara formal atau lebaran."
+  },
+  {
+    "id": "OUT005",
+    "name": "Gamis Syar'i Modern",
+    "category": "Formal",
+    "price": 420000,
+    "rating": 4.6,
+    "reviews": 112,
+    "items": [
+      { "type": "atasan", "name": "Gamis Coklat Susu" },
+      { "type": "aksesoris", "name": "Hijab Syar'i" }
+    ],
+    "image": "assets/images/products/produk 5.jpg",
+    "description": "Tampil syar'i namun tetap modern dan elegan."
+  },
+  {
+    "id": "OUT006",
+    "name": "Dress Muslimah Premium",
+    "category": "Formal",
+    "price": 480000,
+    "rating": 5.0,
+    "reviews": 342,
+    "items": [
+      { "type": "atasan", "name": "Dress Plisket Premium" },
+      { "type": "aksesoris", "name": "Pashmina" }
+    ],
+    "image": "assets/images/products/produuk 6.jpg",
+    "description": "Dress dengan detail plisket premium untuk acara istimewa."
+  }
+]

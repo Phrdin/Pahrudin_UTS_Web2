@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Nurdinshop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 flex flex-col min-h-screen dark:bg-slate-900 dark:text-white">
+
+    <nav class="bg-cyan-600 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="font-bold text-xl">Admin Panel Nurdinshop</div>
+            <a href="index.html" class="text-sm bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors">Ke Toko Utama</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-10 w-full">
+        <h1 class="text-2xl font-bold mb-6 border-b-2 border-cyan-500 inline-block pb-1">Dashboard</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border-l-4 border-cyan-500">
+                <p class="text-sm text-slate-500 dark:text-slate-400">Total Pendapatan</p>
+                <p class="text-3xl font-extrabold text-navy-900 dark:text-white" id="totalRevenue">Rp 0</p>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border-l-4 border-blue-500">
+                <p class="text-sm text-slate-500 dark:text-slate-400">Total Pesanan Masuk</p>
+                <p class="text-3xl font-extrabold text-navy-900 dark:text-white" id="totalOrders">0</p>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border-l-4 border-emerald-500">
+                <p class="text-sm text-slate-500 dark:text-slate-400">Pelanggan Terdaftar</p>
+                <p class="text-3xl font-extrabold text-navy-900 dark:text-white" id="totalUsers">0</p>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-bold mb-4">Daftar Transaksi Terbaru</h2>
+        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-x-auto border border-slate-200 dark:border-slate-700">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-slate-50 dark:bg-slate-700/50 border-b border-slate-200 dark:border-slate-600">
+                        <th class="p-4 text-sm font-bold">ID Transaksi</th>
+                        <th class="p-4 text-sm font-bold">Pelanggan</th>
+                        <th class="p-4 text-sm font-bold">Item</th>
+                        <th class="p-4 text-sm font-bold">Total Harga</th>
+                    </tr>
+                </thead>
+                <tbody id="adminOrdersTable" class="divide-y divide-slate-100 dark:divide-slate-700">
+                    <!-- Render by JS -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser || currentUser.email !== 'admin@nurdinshop.com') {
+                document.body.innerHTML = '<div class="text-center p-20 text-red-500 text-2xl font-bold">Akses Ditolak! Khusus Administrator.</div>';
+                setTimeout(() => window.location.href = 'index.html', 2000);
+                return;
+            }
+
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const formatRupiah = (number) => new Intl.NumberFormat('id-ID', {style: 'currency', currency: 'IDR', minimumFractionDigits: 0}).format(number);
+
+            document.getElementById('totalOrders').textContent = orders.length;
+            document.getElementById('totalUsers').textContent = users.length;
+            
+            let revenue = 0;
+            orders.forEach(o => revenue += o.total);
+            document.getElementById('totalRevenue').textContent = formatRupiah(revenue);
+
+            const tbody = document.getElementById('adminOrdersTable');
+            if (orders.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" class="p-8 text-center text-slate-500">Belum ada pesanan masuk.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = orders.reverse().map(order => `
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+                    <td class="p-4 font-mono text-xs text-cyan-600">${order.id}</td>
+                    <td class="p-4">
+                        <p class="font-bold text-sm">${order.customer.name}</p>
+                        <p class="text-xs text-slate-500">${order.customer.phone}</p>
+                    </td>
+                    <td class="p-4 text-sm text-slate-600 dark:text-slate-300">
+                        ${order.items.length} Bundle
+                    </td>
+                    <td class="p-4 font-bold text-navy-900 dark:text-white">
+                        ${formatRupiah(order.total)}
+                    </td>
+                </tr>
+            `).join('');
+        });
+    </script>
+</body>
+</html>
