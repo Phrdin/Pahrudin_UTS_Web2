@@ -1,33 +1,55 @@
-# Nurdinshop - Outfit Bundling
+# 🛍️ Nurdinshop - Premium Outfit Bundling E-Commerce
 
-## Deskripsi Project
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Web-blue?style=for-the-badge" alt="Web">
+  <img src="https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind">
+  <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript" alt="JS">
+  <img src="https://img.shields.io/badge/Storage-LocalStorage-orange?style=for-the-badge" alt="Storage">
+</p>
 
-**Nurdinshop** adalah platform *e-commerce* premium yang berfokus pada produk *fashion* dengan konsep **Outfit Bundling** (Mix & Match setelan pakaian). Proyek ini dibangun dengan antarmuka yang modern, elegan, dan sepenuhnya responsif (*mobile-friendly*) dengan **Tailwind CSS**. Seluruh fungsionalitas utama berjalan menggunakan **Vanilla JavaScript** dengan bantuan `localStorage` sebagai media penyimpanan database lokal, sehingga aplikasi ini dapat dijalankan sepenuhnya di sisi klien (*client-side*) tanpa memerlukan server *backend*.
+---
 
-## Fitur
+## 📝 Deskripsi Project
 
-Aplikasi ini dilengkapi dengan berbagai fungsionalitas *e-commerce* lengkap, antara lain:
+**Nurdinshop** adalah platform *e-commerce* inovatif yang fokus pada produk *fashion* dengan konsep **Outfit Bundling**. Masalah utama yang kami selesaikan adalah kesulitan pengguna dalam memadupadankan (*mix & match*) pakaian. 
 
-*   🛒 **Manajemen Keranjang (Cart):** Tambah, kurangi, dan hapus produk dari keranjang belanja secara dinamis dengan kalkulasi harga otomatis.
-*   ❤️ **Wishlist:** Simpan produk outfit favorit Anda untuk dibeli nanti.
-*   🌗 **Tema Gelap/Terang (Dark Mode):** Dukungan penuh untuk mode gelap dan terang yang tersimpan di sesi browser.
-*   🔍 **Pencarian & Filter Produk:** Fitur pencarian barang dan penyaringan produk berdasarkan kategori (seperti Casual, Streetwear, Formal) dengan tampilan *Grid* yang responsif.
-*   📦 **Checkout & Riwayat Pesanan (Orders):** Simulasi pembayaran produk, serta pelacakan riwayat pesanan (Order History) secara langsung.
-*   ⭐ **Fitur Penilaian (Rating):** Menampilkan *rating* bintang secara dinamis beserta jumlah ulasan pelanggan pada setiap produk.
-*   🔒 **Sistem Otentikasi (Auth):** Fitur *Login*, *Register*, dan *Log Out* yang mengontrol akses ke halaman tertentu (seperti Checkout dan Orders).
-*   👨‍💻 **Panel Admin:** Dashboard admin khusus untuk melihat pesanan yang masuk, memantau total pendapatan, dan melihat pelanggan terdaftar.
+Dibangun dengan **Vanilla JavaScript** dan **Tailwind CSS**, sistem ini beroperasi sepenuhnya secara *client-side*. Data pengguna, keranjang, hingga riwayat pesanan dikelola secara persisten melalui `localStorage`, memberikan pengalaman aplikasi web yang cepat tanpa memerlukan server backend tambahan.
 
-## Cara Menjalankan
+---
 
-Karena proyek ini berbasis *client-side* murni (HTML, CSS, JS), Anda dapat menjalankannya dengan sangat mudah:
+## ✨ Fitur Unggulan
 
-1.  Pastikan Anda telah mengunduh (*clone*) atau mengekstrak seluruh file proyek ini ke dalam komputer Anda.
-2.  Buka folder proyek (misalnya: `Pahrudin_UTS_Web2`) menggunakan teks editor seperti **Visual Studio Code**.
-3.  Sangat disarankan untuk menjalankan proyek ini menggunakan ekstensi **Live Server**. Klik kanan pada file `index.html` lalu pilih "Open with Live Server".
-4.  Secara otomatis, browser akan terbuka (biasanya di `http://127.0.0.1:5500`) dan aplikasi Nurdinshop siap digunakan!
+### 🛍️ Pengalaman Belanja
+- **Outfit Bundling:** Beli satu setel lengkap (atasan, bawahan, sepatu) dalam satu klik.
+- **Dynamic Cart:** Kelola belanjaan dengan update harga dan jumlah secara otomatis.
+- **Wishlist System:** Simpan koleksi favorit untuk referensi gaya di masa depan.
+- **Smart Search & Filter:** Temukan gaya berdasarkan kategori (Casual, Streetwear, Formal).
 
-## Link Demo (GitHub Pages)
+### 🎨 UI/UX & Interaktivitas
+- **Adaptive Mode:** Dukungan penuh untuk **Dark/Light Mode**.
+- **Responsive Design:** Tampilan elegan yang menyesuaikan layar Mobile, Tablet, hingga Desktop.
+- **Real-time Rating:** Visualisasi bintang dan ulasan dinamis pada setiap produk.
 
-Anda dapat melihat dan mencoba demo aplikasi ini secara langsung tanpa perlu menjalankannya di komputer (Silakan klik tautan di bawah ini):
+### 🔐 Manajemen Data
+- **Simulated Authentication:** Fitur Login, Register, dan Logout berbasis session browser.
+- **Admin Dashboard:** Pantau total pendapatan, pesanan masuk, dan daftar pelanggan terdaftar.
+- **Persistence:** Semua data tersimpan aman di browser walaupun halaman di-refresh.
 
-👉 [**Demo Nurdinshop di GitHub Pages**](https://phrdin.github.io/Pahrudin_UTS_Web2/)
+---
+
+## 🚀 Teknologi yang Digunakan
+
+| Layer | Teknologi |
+| :--- | :--- |
+| **Frontend Framework** | [Tailwind CSS](https://tailwindcss.com/) |
+| **Programming Language** | JavaScript (ES6+) |
+| **Database/Storage** | Web Storage API (LocalStorage) |
+| **Deployment** | GitHub Pages |
+
+---
+
+## 💻 Cara Menjalankan Project
+
+1. **Clone Repository**
+   ```bash
+   git clone [https://github.com/phrdin/Pahrudin_UTS_Web2.git](https://github.com/phrdin/Pahrudin_UTS_Web2.git)
