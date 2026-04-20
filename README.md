@@ -30,4 +30,4 @@ Karena proyek ini berbasis *client-side* murni (HTML, CSS, JS), Anda dapat menja
 
 Anda dapat melihat dan mencoba demo aplikasi ini secara langsung tanpa perlu menjalankannya di komputer (Silakan klik tautan di bawah ini):
 
-👉 [**Demo Nurdinshop di GitHub Pages**](https://github.com/) *(Ganti URL ini dengan link GitHub Pages Anda nanti)*
+👉 [**Demo Nurdinshop di GitHub Pages**](https://phrdin.github.io/Pahrudin_UTS_Web2/)
