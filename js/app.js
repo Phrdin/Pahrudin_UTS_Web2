@@ -20,16 +20,27 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartBadge();
 });
 
-// Fetch Products from JSON Variable
+// Fetch Products from API
 async function fetchProducts() {
     try {
-        await new Promise(resolve => setTimeout(resolve, 800));
-        products = productsData;
+        const API_URL = 'https://uaswebpahrudin-production.up.railway.app/api';
+        const BACKEND_URL = 'https://uaswebpahrudin-production.up.railway.app/';
+        const response = await fetch(`${API_URL}/products`);
+        if (!response.ok) throw new Error('Gagal mengambil data dari server');
+        
+        const data = await response.json();
+        
+        // Parse items string to array if it comes as a string from DB
+        products = data.map(p => ({
+            ...p,
+            items: typeof p.items === 'string' ? JSON.parse(p.items) : p.items
+        }));
+        
         filteredProducts = products;
         renderProducts();
     } catch (error) {
         console.error('Error fetching products:', error);
-        productGrid.innerHTML = `<div class="col-span-full text-center text-red-500 py-10">Gagal memuat katalog produk.</div>`;
+        productGrid.innerHTML = `<div class="col-span-full text-center text-red-500 py-10">Gagal memuat katalog produk dari server. Pastikan backend menyala.</div>`;
     }
 }
 
@@ -73,10 +84,12 @@ function renderProducts(append = false) {
             </li>`
         ).join('');
 
+        const imageUrl = product.image.startsWith('http') ? product.image : (product.image.startsWith('assets') ? product.image : `https://uaswebpahrudin-production.up.railway.app/${product.image}`);
+
         return `
         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-700 overflow-hidden group">
             <div class="relative h-72 overflow-hidden bg-slate-100 dark:bg-slate-700">
-                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x500/e2e8f0/64748b?text=No+Image'">
+                <img src="${imageUrl}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x500/e2e8f0/64748b?text=No+Image'">
                 <div class="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-navy-900 dark:text-white shadow-sm">
                     ${product.category}
                 </div>

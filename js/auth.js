@@ -114,6 +114,7 @@ function checkAuthState() {
             e.preventDefault();
             if(confirm('Apakah Anda yakin ingin logout?')) {
                 localStorage.removeItem('currentUser');
+                localStorage.removeItem('token');
                 window.location.href = 'index.html';
             }
         });
@@ -125,60 +126,88 @@ function checkAuthState() {
 function setupAuthForms() {
     const loginForm = document.getElementById('loginForm');
     const registerForm = document.getElementById('registerForm');
+    const API_URL = 'https://uaswebpahrudin-production.up.railway.app/api/auth';
     
     if (registerForm) {
-        registerForm.addEventListener('submit', (e) => {
+        registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = document.getElementById('regName').value;
             const email = document.getElementById('regEmail').value;
             const password = document.getElementById('regPassword').value;
             const errorMsg = document.getElementById('regError');
+            const btn = registerForm.querySelector('button[type="submit"]');
 
-            let users = JSON.parse(localStorage.getItem('users')) || [];
-            
-            // Hardcode Admin Account
-            if (users.length === 0) {
-                users.push({name: 'Super Admin', email: 'admin@nurdinshop.com', password: 'password123'});
-            }
+            btn.disabled = true;
+            btn.innerHTML = 'Mendaftar...';
+            errorMsg.classList.add('hidden');
 
-            if (users.find(u => u.email === email)) {
+            try {
+                const response = await fetch(`${API_URL}/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    errorMsg.textContent = data.message || 'Gagal mendaftar';
+                    errorMsg.classList.remove('hidden');
+                } else {
+                    alert('Registrasi berhasil! Silakan login.');
+                    window.location.href = 'login.html';
+                }
+            } catch (err) {
+                errorMsg.textContent = 'Terjadi kesalahan jaringan.';
                 errorMsg.classList.remove('hidden');
-                return;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Daftar Sekarang';
             }
-
-            users.push({ name, email, password });
-            localStorage.setItem('users', JSON.stringify(users));
-            
-            alert('Registrasi berhasil! Silakan login.');
-            window.location.href = 'login.html';
         });
     }
 
     if (loginForm) {
-        loginForm.addEventListener('submit', (e) => {
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const errorMsg = document.getElementById('loginError');
+            const btn = loginForm.querySelector('button[type="submit"]');
 
-            let users = JSON.parse(localStorage.getItem('users')) || [];
-            // Admin fallback inject
-            if (!users.find(u => u.email === 'admin@nurdinshop.com')) {
-                users.push({name: 'Super Admin', email: 'admin@nurdinshop.com', password: 'password123'});
-                localStorage.setItem('users', JSON.stringify(users));
-            }
+            btn.disabled = true;
+            btn.innerHTML = 'Masuk...';
+            errorMsg.classList.add('hidden');
 
-            const user = users.find(u => u.email === email && u.password === password);
+            try {
+                const response = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
 
-            if (user) {
-                localStorage.setItem('currentUser', JSON.stringify({ name: user.name, email: user.email }));
-                if(user.email === 'admin@nurdinshop.com') {
-                    window.location.href = 'admin.html';
+                const data = await response.json();
+
+                if (!response.ok) {
+                    errorMsg.textContent = data.message || 'Login gagal';
+                    errorMsg.classList.remove('hidden');
                 } else {
-                    window.location.href = 'index.html';
+                    // Simpan token dan data user ke localStorage
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('currentUser', JSON.stringify(data.user));
+                    
+                    if(data.user.role === 'admin' || data.user.role === 'superadmin') {
+                        window.location.href = 'admin.html';
+                    } else {
+                        window.location.href = 'index.html';
+                    }
                 }
-            } else {
+            } catch (err) {
+                errorMsg.textContent = 'Terjadi kesalahan jaringan.';
                 errorMsg.classList.remove('hidden');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Masuk';
             }
         });
     }
